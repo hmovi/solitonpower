@@ -137,6 +137,8 @@ h3{font-size:1.6rem;letter-spacing:-.02em;line-height:1.15}
 .split .media{grid-column:span 6;border-radius:32px;aspect-ratio:1}
 .split .copy{grid-column:7/-1}
 .split .copy p{margin-top:1.25rem}
+.founder-photo{aspect-ratio:3/4;border-radius:32px}
+.founder-photo img{object-position:center}
 .values{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3rem}
 .values .tile{min-height:240px}
 .v1{background:var(--mist)}
