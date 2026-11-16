@@ -4,98 +4,262 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About Us | Soliton Power</title>
-<meta name="description" content="Soliton Power runs a portfolio of Vancouver companies and the management and operations team behind them.">
+<meta name="description" content="Soliton Power is a Vancouver group that runs five specialist companies in trade, training, marketing, management consulting and software.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Edit these to match your brand colours */
+  :root {
+    --bg: #fdfcfa;
+    --ink: #1f1f1f;
+    --muted: #5c5c5c;
+    --line: #e7e4de;
+    --panel: #f4f2ee;
+    --accent: #1f1f1f;
+    --accent-ink: #ffffff;
+    --radius: 28px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-weight: 300;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--muted);
+    background: var(--bg);
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { color: var(--ink); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin: 0; }
+  h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); }
+  h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); }
+  h3 { font-size: 1.4rem; letter-spacing: -0.01em; line-height: 1.2; }
+  p { margin: 0 0 1.1em; max-width: 60ch; }
+
+  .wrap { width: min(1180px, 100% - 3rem); margin-inline: auto; }
+  section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+
+  /* Header */
+  header.site { position: sticky; top: 0; z-index: 10; background: rgba(253,252,250,.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 1rem; flex-wrap: wrap; }
+  .brand { text-decoration: none; color: var(--ink); font-size: 1.4rem; letter-spacing: -0.02em; }
+  .brand b { font-weight: 700; }
+  .brand span { font-weight: 300; }
+  nav ul { list-style: none; display: flex; gap: 1.6rem; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav a { text-decoration: none; font-size: 1.05rem; color: var(--muted); padding: .25rem 0; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
+  nav a[aria-current="page"] { border-bottom: 2px solid var(--ink); }
+
+  /* Buttons */
+  .btn { display: inline-block; text-decoration: none; font-weight: 500; font-size: 1.05rem; padding: .85rem 1.6rem; border-radius: 999px; border: 1.5px solid var(--accent); transition: background .15s, color .15s; }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.primary:hover { background: transparent; color: var(--accent); }
+  .btn.ghost { color: var(--accent); }
+  .btn.ghost:hover { background: var(--accent); color: var(--accent-ink); }
+  .btn-row { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.6rem; }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  /* Hero */
+  .hero .wrap { display: grid; gap: clamp(2rem, 5vw, 4rem); grid-template-columns: 1.1fr .9fr; align-items: center; }
+  .hero p.lead { font-size: 1.35rem; margin-top: 1.5rem; }
+  .hero img { border-radius: var(--radius); aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+
+  /* What we are + how it works */
+  .split { display: grid; gap: clamp(2rem, 5vw, 5rem); grid-template-columns: 1fr 1fr; align-items: start; }
+  .pillars { display: grid; gap: 1.6rem; }
+  .pillar { padding-top: 1.2rem; border-top: 1px solid var(--line); }
+  .pillar h3 { margin-bottom: .4rem; }
+  .pillar p { margin: 0; }
+
+  /* Companies */
+  .companies { background: var(--panel); }
+  .companies h2 { margin-bottom: 2.5rem; }
+  .company-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+  .company { background: var(--bg); border-radius: 22px; padding: 1.8rem; }
+  .company h3 { margin-bottom: .6rem; }
+  .company p { margin: 0; font-size: 1.05rem; }
+
+  /* Founder */
+  .founder .wrap { display: grid; gap: clamp(2rem, 5vw, 4.5rem); grid-template-columns: .95fr 1.05fr; align-items: center; }
+  .founder img { border-radius: var(--radius); aspect-ratio: 1 / 1; object-fit: cover; width: 100%; }
+  .founder h2 { margin-bottom: 1.5rem; }
+  .founder p { font-size: 1.25rem; }
+
+  /* CTA */
+  .cta .wrap { background: var(--ink); color: #cfcfcf; border-radius: var(--radius); padding: clamp(2.5rem, 6vw, 4.5rem); }
+  .cta h2 { color: #fff; margin-bottom: 1rem; }
+  .cta .btn.primary { background: #fff; color: var(--ink); border-color: #fff; }
+  .cta .btn.primary:hover { background: transparent; color: #fff; }
+  .cta :focus-visible { outline-color: #fff; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--line); padding: 3rem 0 2rem; font-size: 1rem; }
+  footer .cols { display: grid; gap: 2rem; grid-template-columns: 1.4fr 1fr 1fr; }
+  footer h4 { margin: 0 0 .7rem; color: var(--ink); font-weight: 500; font-size: 1rem; }
+  footer ul { list-style: none; margin: 0; padding: 0; }
+  footer li { margin-bottom: .4rem; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--ink); text-decoration: underline; }
+  footer .legal { margin-top: 2.5rem; font-size: .95rem; }
+
+  @media (max-width: 860px) {
+    .hero .wrap, .split, .founder .wrap, footer .cols { grid-template-columns: 1fr; }
+    .hero img { aspect-ratio: 4 / 3; }
+    .founder img { order: -1; aspect-ratio: 4 / 3; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="wrap nav">
-    <a class="brand" href="index.html" aria-label="Soliton Power home"><b>Soliton</b><span>Power</span></a>
-    <button class="menu-btn" aria-expanded="false" aria-label="Menu"><span></span></button>
-    <nav class="nav-links" aria-label="Main">
-      <a href="index.html">Home</a>
-      <a href="companies.html">Companies</a>
-      <a href="about.html" aria-current="page">About us</a>
-      <a class="btn btn-dark" href="contact.html">Contact us</a>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><b>Soliton</b><span>Power</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="about.html" aria-current="page">About us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+      </ul>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="wrap page-head">
-    <span class="hero-square" aria-hidden="true"></span>
-    <h1>The team behind a portfolio of companies.</h1>
-    <p class="lede">Soliton Power is based in Vancouver, Canada. We run a portfolio of companies and provide the power management and operations team behind their success.</p>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>One group. Five specialist companies.</h1>
+        <p class="lead">Soliton Power is a Vancouver group that runs companies in trade, training, marketing, management consulting and software. Each serves its own clients under its own brand. We provide the leadership and operations behind them.</p>
+      </div>
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_2997-AaWsoAVWk9lN260Uuv8gKHhBXJgrlz.jpeg" alt="Two colleagues discussing ideas beside a downtown office window">
+    </div>
   </section>
 
-  <section class="wrap section" style="padding-top:2rem">
-    <div class="split">
-      <div class="media"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_2997-AaWsoAVWk9lN260Uuv8gKHhBXJgrlz.jpeg" alt="Two colleagues discussing ideas beside a downtown office window" loading="lazy" onerror="this.remove()"></div>
-      <div class="copy">
-        <h2>Who we are.</h2>
-        <p class="lede muted">Soliton Power is a Vancouver portfolio of companies: Soliton Trade Advising, CTLS, Red Chair Marketing, Soliton Management Services and Tectostack.</p>
-        <p class="muted">The companies cover trade advising, training and learning systems, digital marketing, operations and management services, and software development. Each one serves its own clients under its own brand. Soliton Power runs the portfolio and the management and operations that sit behind it.</p>
-        <div class="actions" style="margin-top:2rem"><a class="btn btn-dark" href="companies.html">Meet the portfolio</a></div>
+  <!-- What we are + how it works -->
+  <section>
+    <div class="wrap split">
+      <div>
+        <h2>What Soliton Power is</h2>
+        <p style="margin-top:1.5rem">We&rsquo;re the umbrella over our companies. We set direction, share operational know-how and keep the businesses running well, so each team can focus on the clients it serves.</p>
+        <p>We don&rsquo;t offer services directly. If you need help with trade, training, marketing, management or software, start with the company that fits.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <h3>Specialist companies</h3>
+          <p>Each company does one thing well, for the clients who need it.</p>
+        </div>
+        <div class="pillar">
+          <h3>Shared foundation</h3>
+          <p>Operations, management and planning sit at the group level, so no company builds them from scratch.</p>
+        </div>
+        <div class="pillar">
+          <h3>Rooted in Vancouver</h3>
+          <p>Local knowledge, with reach into Africa, Asia and South America through our trade work.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="wrap section founder-section" aria-labelledby="founder-heading">
-    <div class="split founder-split">
-      <div class="media founder-photo"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0748-viUiCc531tU1Y4I6jjXRBBz7pg3hpV.jpeg" alt="Hos Movahedi beside the bull sculpture on Vancouver’s waterfront" loading="lazy"></div>
-      <div class="copy">
-        <span class="tag">Founder</span>
-        <h2 id="founder-heading">Serious about great work. Not about taking myself too seriously.</h2>
-        <p class="lede muted">I’m Hos Movahedi, founder of Soliton Power. I’m a naturally goofy, upbeat person—and deeply passionate about delivering thoughtful, high-quality products and services to people across Vancouver and the Sea to Sky.</p>
-        <p class="muted">I stay hands-on in the businesses we build, drawing on experience in trade, education and marketing. Many of the people I work with are friends and long-time connections, and I’m personally invested in their success. When I’m not working, you’ll likely find me snowboarding, surfing or biking around Vancouver.</p>
-        <p class="muted">If you think we should talk, don’t hesitate to reach out.</p>
-        <div class="actions" style="margin-top:2rem"><a class="btn btn-dark" href="contact.html">Let’s talk</a><a class="btn btn-line" href="https://medium.com/@HosVNG/about" target="_blank" rel="noopener noreferrer">Read my story on Medium</a></div>
+  <!-- Companies -->
+  <section class="companies" id="companies">
+    <div class="wrap">
+      <h2>Our companies</h2>
+      <div class="company-list">
+        <div class="company">
+          <h3>Soliton Trade Advising</h3>
+          <p>Trade, logistics and sales support for businesses importing, partnering or sourcing in Canada and the USA.</p>
+        </div>
+        <div class="company">
+          <h3>CTLS</h3>
+          <p>Training and learning systems for colleges and organizations, built with Canadian professionals.</p>
+        </div>
+        <div class="company">
+          <h3>Red Chair Marketing</h3>
+          <p>Digital marketing for businesses in Vancouver, Whistler and Squamish.</p>
+        </div>
+        <div class="company">
+          <h3>Soliton Management Services</h3>
+          <p>Boutique management consulting for small and mid-sized businesses.</p>
+        </div>
+        <div class="company">
+          <h3>Tectostack</h3>
+          <p>Software development.</p>
+        </div>
+      </div>
+      <div class="btn-row">
+        <a class="btn primary" href="companies.html">Meet the portfolio</a>
       </div>
     </div>
   </section>
 
-  <section class="wrap" style="padding-bottom:clamp(4rem,10vw,8rem)">
-    <h2>How we’re built.</h2>
-    <div class="values">
-      <div class="tile v1"><h3>Specialist companies</h3><p>Every company does one thing well, for the clients who need it.</p></div>
-      <div class="tile v2"><h3>One group behind them</h3><p>Soliton Power runs the portfolio, so each company can focus on its own clients.</p></div>
-      <div class="tile v3"><h3>Rooted in Vancouver</h3><p>Local knowledge, with reach into Africa, Asia and South America through trade.</p></div>
+  <!-- Founder -->
+  <section class="founder">
+    <div class="wrap">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_0748-viUiCc531tU1Y4I6jjXRBBz7pg3hpV.jpeg" alt="Hos Movahedi beside the bull sculpture on Vancouver&rsquo;s waterfront">
+      <div>
+        <h2>Hey, I&rsquo;m Hos. I build businesses and help others grow.</h2>
+        <p>I started Soliton Power to bring trade, education and marketing experience under one roof, and I stay hands-on in every company we build.</p>
+        <p>Most of the people I work with began as friends or long-time connections, so their success is personal to me.</p>
+        <p>Off the clock, I&rsquo;m on a snowboard, a surfboard or a bike.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="contact.html">Let&rsquo;s talk</a>
+          <a class="btn ghost" href="https://medium.com/@HosVNG/about">Read my story on Medium</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="wrap">
-    <div class="cta">
-      <h2>Looking for a specific service?</h2>
-      <p>Start with the company that fits. For anything about the group itself, contact Soliton Power.</p>
-      <div class="actions"><a class="btn btn-mist" href="companies.html">Meet the portfolio</a></div>
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <h2>Not sure where to start?</h2>
+      <p>Pick the company that fits your need. For questions about the group itself, contact Soliton Power.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="companies.html">Meet the portfolio</a>
+        <a class="btn ghost" href="contact.html" style="color:#fff;border-color:#fff">Contact us</a>
+      </div>
     </div>
   </section>
-  </main>
 
-<footer class="site-footer">
+</main>
+
+<footer>
   <div class="wrap">
-    <div class="foot">
+    <div class="cols">
       <div>
         <a class="brand" href="index.html"><b>Soliton</b><span>Power</span></a>
-        <p>Soliton Power runs a portfolio of Vancouver companies, and the management team behind their success.</p>
+        <p style="margin-top:.8rem">Soliton Power runs a portfolio of Vancouver companies and the management team behind them.</p>
       </div>
       <div>
         <h4>Explore</h4>
-        <ul><li><a href="index.html">Home</a></li><li><a href="companies.html">Companies</a></li><li><a href="about.html">About us</a></li><li><a href="contact.html">Contact us</a></li></ul>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="companies.html">Companies</a></li>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
       </div>
       <div>
         <h4>Our companies</h4>
-        <ul><li><a href="companies.html#west-trade">Soliton Trade Advising</a></li><li><a href="companies.html#ctls">CTLS</a></li><li><a href="companies.html#red-chair">Red Chair Marketing</a></li><li><a href="companies.html#management-services">Soliton Management Services</a></li><li><a href="companies.html#tectostack">Tectostack</a></li></ul>
+        <ul>
+          <li><a href="companies.html#west-trade">Soliton Trade Advising</a></li>
+          <li><a href="companies.html#ctls">CTLS</a></li>
+          <li><a href="companies.html#red-chair">Red Chair Marketing</a></li>
+          <li><a href="companies.html#management-services">Soliton Management Services</a></li>
+          <li><a href="companies.html#tectostack">Tectostack</a></li>
+        </ul>
       </div>
     </div>
-    <div class="legal"><span>© 2026 Soliton Power</span><span>Vancouver, Canada</span></div>
+    <p class="legal">&copy; 2026 Soliton Power &middot; Vancouver, Canada</p>
   </div>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
