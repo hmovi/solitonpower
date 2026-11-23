@@ -146,7 +146,14 @@ h3{font-size:1.6rem;letter-spacing:-.02em;line-height:1.15}
 .v2{background:var(--sand)}
 .v3{background:var(--ink);color:var(--paper)}
 
-.contact-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:start}
+.contact-section{padding-top:1rem}
+.notice{padding:clamp(1.5rem,4vw,2.75rem);border-radius:32px;background:var(--mist)}
+.notice h2{max-width:24em;font-size:clamp(1.65rem,3vw,2.5rem);line-height:1.1}
+.notice p{max-width:50em;margin-top:.85rem}
+.notice .chips{position:static;display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.25rem}
+.notice .chips a{background:var(--paper);font-size:.95rem;padding:.5em 1em}
+.notice .chips a:hover{background:var(--ink);color:var(--paper)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:start;margin-top:1.5rem}
 form{background:var(--mist);border-radius:32px;padding:clamp(1.5rem,4vw,2.75rem);display:grid;gap:1.1rem}
 label{display:grid;gap:.4rem;font-weight:600;font-size:1rem}
 input,select,textarea{font:inherit;font-weight:400;padding:.9rem 1.1rem;border-radius:16px;border:1.5px solid transparent;background:var(--paper);color:var(--ink);width:100%}
