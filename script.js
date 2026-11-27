@@ -405,3 +405,15 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
   if ('IntersectionObserver' in window) new IntersectionObserver((es) => { seen = es[0].isIntersecting; if (seen) show(cur); else { clearTimeout(t); bl.classList.remove('run'); } }, { threshold: 0.3 }).observe(bl);
   show(0);
 })();
+
+// Companies dropdown: tap/click toggle (hover and keyboard focus open it on desktop via CSS)
+document.querySelectorAll('.nav-dd').forEach((dd) => {
+  const btn = dd.querySelector('.dd-btn');
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const open = dd.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+  dd.addEventListener('keydown', (e) => { if (e.key === 'Escape') { dd.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.focus(); } });
+  document.addEventListener('click', (e) => { if (!dd.contains(e.target)) { dd.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
+});

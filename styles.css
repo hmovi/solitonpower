@@ -610,3 +610,36 @@ textarea{min-height:150px;resize:vertical}
   .cta::after{width:110px;right:-40px;bottom:-40px}
   .cta .actions{position:relative;z-index:2}
 }
+
+/* ---------- Companies dropdown (header) ---------- */
+.nav-dd{position:relative;display:flex;align-items:center}
+.nav-dd>a{padding-right:.35rem!important}
+.dd-btn{display:grid;place-items:center;width:30px;height:30px;margin-left:-.1rem;border:0;border-radius:50%;background:none;color:var(--ink);cursor:pointer;transition:background .2s,transform .25s var(--ease)}
+.dd-btn:hover{background:var(--mist)}
+.dd-btn svg{transition:transform .25s var(--ease)}
+.dd-menu{position:absolute;top:calc(100% + 10px);right:-1rem;width:330px;padding:.5rem;border-radius:22px;background:var(--paper);box-shadow:0 0 0 1px var(--line),0 24px 50px rgba(31,31,31,.16);display:grid;gap:2px;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .2s,transform .25s var(--ease),visibility .2s;z-index:40}
+.dd-menu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu,.nav-dd.open .dd-menu{opacity:1;visibility:visible;transform:none}
+.nav-dd:hover .dd-btn svg,.nav-dd.open .dd-btn svg{transform:rotate(180deg)}
+.nav-links .dd-menu a{display:flex;flex-direction:column;gap:1px;padding:.65rem .9rem;border-radius:14px;font-weight:500}
+.nav-links .dd-menu a b{font-weight:600;font-size:1rem}
+.nav-links .dd-menu a small{font-size:.82rem;opacity:.65}
+.nav-links .dd-menu a:hover{background:var(--mist)}
+.nav-links .dd-menu .dd-all{margin-top:.25rem;border-top:1px solid var(--line);border-radius:0 0 14px 14px;font-weight:600;color:var(--sand-deep)}
+@media (max-width:900px){
+  .nav-dd{flex-wrap:wrap}
+  .nav-dd>a{flex:1}
+  .dd-btn{width:44px;height:44px}
+  .dd-menu{position:static;width:100%;opacity:1;visibility:visible;transform:none;box-shadow:none;background:transparent;padding:0 0 .5rem .5rem;display:none}
+  .dd-menu::before{display:none}
+  .nav-dd:hover .dd-menu,.nav-dd:focus-within .dd-menu{display:none}
+  .nav-dd.open .dd-menu{display:grid}
+  .nav-links .dd-menu a{padding:.55rem 1rem;font-size:1rem}
+  .nav-links .dd-menu a small{display:none}
+}
+
+/* ---------- Footer LinkedIn ---------- */
+.foot-social{display:flex;align-items:center;gap:.8rem;margin-top:1.4rem}
+.foot-li{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--ink);color:var(--paper);transition:transform .25s var(--ease),background .25s}
+.foot-li:hover{transform:translateY(-3px);background:#0a66c2;text-decoration:none!important}
+.foot-li-txt{font-weight:600;font-size:.98rem}
