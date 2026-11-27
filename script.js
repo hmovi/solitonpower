@@ -80,7 +80,7 @@ if ('IntersectionObserver' in window && !reduceMotion) {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   const targets = document.querySelectorAll(
-    'main > section:not(.hero) h2, main > section .eyebrow, main > section .lede:not(.hero-text .lede), .grow-card, .stats > *, .mon-tabs, .mon, .mon-cap, .phone, .blog-head > *, .bl, .tile, .co, .split > *, .values > *, .cta, .notice, .contact-grid > *'
+    'main > section:not(.hero) h2, main > section .eyebrow, main > section .lede:not(.hero-text .lede), .grow-card, .stats > *, .mon-tabs, .mon, .mon-cap, .phone, .blog-head > *, .bl, .tile, .co, .split > *, .values > *, .cta, .notice, .contact-grid > *, .ab-stats > *, .ab-split > *, .ab-founder > *, .ab-how > *, .ab-co, .ab-idea, .svc, .facts > *, .cc, .oc'
   );
   targets.forEach((el) => {
     if (el.closest('.hero-text')) return;
