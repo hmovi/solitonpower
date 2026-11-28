@@ -89,6 +89,10 @@ if ('IntersectionObserver' in window && !reduceMotion) {
     el.classList.add('rv');
     io.observe(el);
   });
+  // Elements marked .rv directly in the HTML (e.g. the consulting page)
+  document.querySelectorAll('.rv:not(.in)').forEach((el) => io.observe(el));
+} else {
+  document.querySelectorAll('.rv').forEach((el) => el.classList.add('in'));
 }
 
 // Statement lights up word by word while scrolling
